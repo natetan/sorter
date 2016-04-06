@@ -1,0 +1,20 @@
+/**
+ * Created by Yulong on 4/6/2016.
+ */
+
+public class Test {
+    public static void main(String[] stuff) {
+        LinkedQueue q = new LinkedQueue();
+        q.add(5);
+        q.add(3);
+        q.add(2);
+        System.out.println("Initial queue: " + q.toString()); // 5 3 2
+        System.out.println("Size: " + q.size()); // 3
+        int x = q.remove(); // x = 5
+        System.out.println("After removal of " + x + ": " + q.toString()); // 3 2
+        System.out.println("Size: " + q.size()); // 2
+        int y = q.peek();
+        System.out.println("After peeking of " + y + ": " + q.toString()); // 3 2
+        System.out.println("Size: " + q.size()); // 2
+    }
+}
