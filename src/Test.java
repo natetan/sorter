@@ -16,5 +16,17 @@ public class Test {
         int y = q.peek();
         System.out.println("After peeking of " + y + ": " + q.toString()); // 3 2
         System.out.println("Size: " + q.size()); // 2
+
+        q.add(5);
+        q.add(7);
+        System.out.println("Added 7 and 5: " + q.toString()); // 3 2 5 7
+        System.out.println("Size: " + q.size()); // 4
+        q.add(q.remove());
+        System.out.println("Added the removal: " + q.toString()); // 2 5 7 3
+        System.out.println("Size: " + q.size()); // 4
+
+        Sorter s = new Sorter();
+        s.mergeSort(q);
+        System.out.println("After mergesort: " + q.toString()); // 2 3 5 7
     }
 }
