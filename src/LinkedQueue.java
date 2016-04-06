@@ -1,7 +1,10 @@
 import java.util.NoSuchElementException;
 
 /**
- * Created by Yulong on 4/5/2016.
+ *  Yulong Tan
+ *  4.06.16
+ *
+ *  LinkedList implementation of queue.
  */
 public class LinkedQueue {
     private QueueNode front;
@@ -18,7 +21,7 @@ public class LinkedQueue {
             this.front = new QueueNode(data);
         } else {
             QueueNode current = this.front;
-            while (current != null) {
+            while (current.next != null) {
                 current = current.next;
             }
             current.next = new QueueNode(data);
@@ -43,10 +46,24 @@ public class LinkedQueue {
     }
 
     public int size() {
-        return this.size();
+        return this.size;
     }
 
     public boolean isEmpty() {
         return this.size() == 0;
+    }
+
+    public String toString() {
+        if (this.isEmpty()) {
+            return "[]";
+        } else {
+            String result = "[" + this.front.data;
+            QueueNode current = this.front.next;
+            while (current != null) {
+                result += ", " + current.data;
+                current = current.next;
+            }
+            return result + "]";
+        }
     }
 }
