@@ -1,6 +1,10 @@
 /**
- * Created by Yulong on 4/5/2016.
+ *  Yulong Tan
+ *  4.06.16
+ *
+ *  Node class for LinkedQueue
  */
+
 public class QueueNode {
     public int data;
     public QueueNode next;
