@@ -3,7 +3,10 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Created by Yulong on 4/5/2016.
+ *  Yulong Tan
+ *  4.06.16
+ *
+ *  This class attempts to implement various sorting algorithms.
  */
 
 public class Sorter<E> {
