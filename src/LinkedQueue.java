@@ -15,7 +15,7 @@ public class LinkedQueue<E> {
         this.size = 0;
     }
 
-    public void add(int data) {
+    public void add(E data) {
         this.size++;
         if (this.front == null) {
             this.front = new QueueNode(data);
