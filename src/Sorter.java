@@ -9,9 +9,9 @@ import java.util.Queue;
  *  This class attempts to implement various sorting algorithms.
  */
 
-public class Sorter<E> {
+public class Sorter {
 
-    public void mergeSort(LinkedQueue list) {
+    public void mergeSort(LinkedQueue<Integer> list) {
         if (list.size() > 1) {
             LinkedQueue left = new LinkedQueue();
             LinkedQueue right = new LinkedQueue();
@@ -29,7 +29,8 @@ public class Sorter<E> {
         }
     }
 
-    private void combine(LinkedQueue list, LinkedQueue left, LinkedQueue right) {
+    private void combine(LinkedQueue<Integer> list, LinkedQueue<Integer> left,
+                         LinkedQueue<Integer> right) {
         while (!left.isEmpty() && !right.isEmpty()) {
             if (left.peek() <= right.peek()) {
                 list.add(left.remove());

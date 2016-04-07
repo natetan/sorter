@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
  *
  *  LinkedList implementation of queue.
  */
-public class LinkedQueue {
+public class LinkedQueue<E> {
     private QueueNode front;
     private int size;
 
@@ -28,21 +28,21 @@ public class LinkedQueue {
         }
     }
 
-    public int remove() {
+    public E remove() {
         if (this.isEmpty()) {
             throw new NoSuchElementException();
         }
         this.size--;
-        int data = this.front.data;
+        E data = (E)this.front.data;
         this.front = this.front.next;
         return data;
     }
 
-    public int peek() {
+    public E peek() {
         if (this.isEmpty()) {
             throw new NoSuchElementException();
         }
-        return this.front.data;
+        return (E)this.front.data;
     }
 
     public int size() {

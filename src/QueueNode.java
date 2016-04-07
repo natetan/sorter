@@ -5,15 +5,15 @@
  *  Node class for LinkedQueue
  */
 
-public class QueueNode {
-    public int data;
+public class QueueNode<E> {
+    public E data;
     public QueueNode next;
 
-    public QueueNode(int data) {
+    public QueueNode(E data) {
         this(data, null);
     }
 
-    public QueueNode(int data, QueueNode next) {
+    public QueueNode(E data, QueueNode next) {
         this.data = data;
         this.next = next;
     }
