@@ -9,12 +9,12 @@ import java.util.Queue;
  *  This class attempts to implement various sorting algorithms.
  */
 
-public class Sorter {
+public class Sorter<E> {
 
-    public void mergeSort(LinkedQueue<Integer> list) {
+    public void mergeSort(LinkedQueue<E> list) {
         if (list.size() > 1) {
-            LinkedQueue left = new LinkedQueue();
-            LinkedQueue right = new LinkedQueue();
+            LinkedQueue<E> left = new LinkedQueue();
+            LinkedQueue<E> right = new LinkedQueue();
             int size1 = list.size() / 2;
             int size2 = list.size() - size1;
             for (int i = 0; i < size1; i++) {
@@ -29,13 +29,30 @@ public class Sorter {
         }
     }
 
-    private void combine(LinkedQueue<Integer> list, LinkedQueue<Integer> left,
-                         LinkedQueue<Integer> right) {
+    // Redundant code used to make generic types
+    private void combine(LinkedQueue<E> list, LinkedQueue<E> left,
+                         LinkedQueue<E> right) {
         while (!left.isEmpty() && !right.isEmpty()) {
-            if (left.peek() <= right.peek()) {
-                list.add(left.remove());
+            E leftData = left.peek();
+            E rightData = right.peek();
+            if (this.isString(leftData) || this.isString(rightData)) {
+                if (((String) leftData).compareTo((String) rightData) <= 0) {
+                    list.add(left.remove());
+                } else {
+                    list.add(right.remove());
+                }
+            } else if (this.isInt(leftData) || this.isInt(rightData)) {
+                if (((Integer) leftData).compareTo((Integer) rightData) <= 0) {
+                    list.add(left.remove());
+                } else {
+                    list.add(right.remove());
+                }
             } else {
-                list.add(right.remove());
+                if (((Double) leftData).compareTo((Double) rightData) <= 0) {
+                    list.add(left.remove());
+                } else {
+                    list.add(right.remove());
+                }
             }
         }
         while (!left.isEmpty()) {
@@ -45,5 +62,17 @@ public class Sorter {
         while (!right.isEmpty()) {
             list.add(right.remove());
         }
+    }
+
+    private boolean isString(E data) {
+        return data instanceof String;
+    }
+
+    private boolean isInt(E data) {
+        return data instanceof Integer;
+    }
+
+    private boolean isDouble(E data) {
+        return data instanceof Double;
     }
 }
