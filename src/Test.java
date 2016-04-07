@@ -25,7 +25,7 @@ public class Test {
         System.out.println("Added the removal: " + q.toString()); // 2 5 7 3
         System.out.println("Size: " + q.size()); // 4
 
-        Sorter s = new Sorter();
+        Sorter<Integer> s = new Sorter();
         s.mergeSort(q);
         System.out.println("After mergesort: " + q.toString()); // 2 3 5 7
     }
