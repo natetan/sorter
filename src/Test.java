@@ -4,7 +4,7 @@
 
 public class Test {
     public static void main(String[] stuff) {
-        LinkedQueue q = new LinkedQueue();
+        LinkedQueue<Integer> q = new LinkedQueue();
         q.add(5);
         q.add(3);
         q.add(2);
