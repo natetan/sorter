@@ -11,6 +11,8 @@ import java.util.Queue;
 
 public class Sorter<E> {
 
+    // Does the merge sort algorithm
+    // Queue is sorted afterwards
     public void mergeSort(LinkedQueue<E> list) {
         if (list.size() > 1) {
             LinkedQueue<E> left = new LinkedQueue();
@@ -29,7 +31,7 @@ public class Sorter<E> {
         }
     }
 
-    // Redundant code used to make generic types
+    // Merges the left and right together
     private void combine(LinkedQueue<E> list, LinkedQueue<E> left,
                          LinkedQueue<E> right) {
         while (!left.isEmpty() && !right.isEmpty()) {
@@ -42,7 +44,6 @@ public class Sorter<E> {
         while (!left.isEmpty()) {
             list.add(left.remove());
         }
-
         while (!right.isEmpty()) {
             list.add(right.remove());
         }

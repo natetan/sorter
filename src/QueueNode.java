@@ -1,30 +1,25 @@
 /**
  *  Yulong Tan
- *  4.06.16
+ *  4.8.16
  *
  *  Node class for LinkedQueue
  */
 
-public class QueueNode<E> implements Comparable<QueueNode> {
-    public E data;
-    public QueueNode next;
+public class QueueNode<E> {
+    public E data; // Generic data for storage
+    public QueueNode next; // reference to the next node
+    public QueueNode prev; // reference to the previous node
 
+    // Constructs a QueueNode with given data, and null for
+    // its next node, and prev node.
     public QueueNode(E data) {
-        this(data, null);
+        this(data, null, null);
     }
 
-    public QueueNode(E data, QueueNode next) {
+    // Constructs a QueueNode with given data, next node, and prev node
+    public QueueNode(E data, QueueNode next, QueueNode prev) {
         this.data = data;
         this.next = next;
-    }
-
-    public int compareTo(QueueNode other) {
-        if (this.data instanceof String) {
-            return ((String) this.data).compareTo((String)other.data);
-        } else if (this.data instanceof Integer) {
-            return (Integer) this.data - (Integer) other.data;
-        } else { // Doubles
-            return (int) Math.signum((Double) this.data - (Double) other.data);
-        }
+        this.prev = prev;
     }
 }
